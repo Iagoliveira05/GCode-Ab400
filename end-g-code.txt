@@ -1,0 +1,20 @@
+
+M117 Finalizando impressão...
+
+M104 S0                        ; Desliga o hotend
+M140 S0                        ; Desliga a mesa
+M106 S0                        ; Desliga ventoinha de peça
+
+G91                            ; Modo relativo
+G1 E-5 F600                    ; Retrai 5mm de filamento
+G1 Z10 F1000                   ; Sobe o bico 10mm para evitar colisão
+G90                            ; Volta para modo absoluto
+
+G1 X0 Y400 F6000               ; Move o bico para longe da peça (ajuste Y conforme sua cama)
+
+G1 Z400 F6000   
+
+M84                            ; Desliga os motores
+
+M300 S2000 P1500               ; Beep longo (2000Hz por 1500ms) - sinal de finalização
+M117 Impressão finalizada!
